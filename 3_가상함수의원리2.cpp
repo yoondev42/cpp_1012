@@ -7,7 +7,7 @@ using namespace std;
 class A {
   int a;
 public:
-  void foo() { cout << "A foo" << endl; }
+  virtual void foo() { cout << "A foo" << endl; }
 };
 
 class B {
