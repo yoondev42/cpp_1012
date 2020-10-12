@@ -16,12 +16,16 @@ int main() {
   int x[10] = { 1, 3, 5, 7, 9, 2, 4, 6, 8, 10 };
 
   sort(x, x + 10, [](int a, int b) {
-    return a > b;
+    return a < b;
   });
 
-  for (int e : x) {
-    cout << e << endl;
-  }
+  for_each(x, x + 10, [](int n) {
+    cout << n << endl;
+  });
+
+  // for (int e : x) {
+  //   cout << e << endl;
+  // }
 }
 
 #if 0
