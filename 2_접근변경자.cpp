@@ -26,7 +26,7 @@ public:
 //    public    ->     private
 //    protected ->     private
 
-class Derived : public Base {
+class Derived : private Base {
                // 접근 변경자
 };
 
