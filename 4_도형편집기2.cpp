@@ -19,19 +19,26 @@ class Shape {
 public:
   virtual ~Shape() {} 
 
+  // 공통성과 가변성을 분리하는 방법
+  //  1. 변하지 않는 부분은 부모가 비 가상함수로 정의하고,
+  //     변하는 부분은 가상함수를 통해 자식이 재정의할 수 있도록 한다.
+  //     => 변하는 것을 가상함수로 분리한다.
+  //     => Template Method Pattern
   void Draw() { 
     m.lock();
     DrawImpl();
     m.unlock();
   }
 
-  virtual void DrawImpl() { 
-    cout << "Shape draw" << endl;
-  }
-
   virtual Shape* Clone() {
     return new Shape(*this);
   }
+
+protected:
+  virtual void DrawImpl() {
+    cout << "Shape draw" << endl;
+  }
+
 };
 
 class Rect : public Shape {
