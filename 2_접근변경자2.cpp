@@ -23,15 +23,15 @@ template <typename T>
 class stack : public list<T> {
 public:
   void push(const T& a) { 
-    push_back(a);
+    list<T>::push_back(a);
   }
 
   void pop() {
-    pop_back();
+    list<T>::pop_back();
   }
 
   T& top() {
-    return back();
+    return list<T>::back();
   }
 };
 
