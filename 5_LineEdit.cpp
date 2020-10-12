@@ -17,8 +17,8 @@ int getch(void)
 
     newt = old;
     newt.c_lflag &= ~(ICANON|ECHO);
-    newt.c_cc[VMIN] = 1;
-    newt.c_cc[VTIME] = 0;
+    // newt.c_cc[VMIN] = 1;
+    // newt.c_cc[VTIME] = 0;
 
     tcsetattr(0, TCSAFLUSH, &newt);
     ch = getchar();
@@ -50,7 +50,7 @@ public:
     while (1) {
       char c = getch();
       
-      if (c == 13)  // enter
+      if (c == 10)  // enter  // if (c == 13)
         break;
 
       if (isdigit(c)) {
