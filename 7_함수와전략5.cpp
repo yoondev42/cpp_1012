@@ -8,6 +8,23 @@ inline bool cmp2(int a, int b) { return a < b; }
 #include <functional>  // less<>, greater<> 함수 객체가 이미 제공됩니다.
 using namespace std;
 
+// 함수 객체
+//   => 익명의 함수 객체
+//      람다(Lambda)
+
+int main() {
+  int x[10] = { 1, 3, 5, 7, 9, 2, 4, 6, 8, 10 };
+
+  sort(x, x + 10, [](int a, int b) {
+    return a > b;
+  });
+
+  for (int e : x) {
+    cout << e << endl;
+  }
+}
+
+#if 0
 int main() {
   int x[10] = { 1, 3, 5, 7, 9, 2, 4, 6, 8, 10 };
 
@@ -30,3 +47,4 @@ int main() {
   std::sort(x, x + 10, cmp1);
   std::sort(x, x + 10, cmp2);
 }
+#endif
