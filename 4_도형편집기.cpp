@@ -21,9 +21,16 @@ using namespace std;
 
 // 6. Prototype Pattern: 기존의 존재하는 객체를 기반으로 새로운 객체를 생성하는 패턴
 //    => "다형성"을 이용해서 새로운 객체를 생성한다.
+//       Java, C#: Clone()
+//     Swift/ObjC: copy()
+
+// 7. 리팩토링(마틴 파울러): 유지보수가 불가능한 나쁜 코드를 유지 보수가 가능한 코드로 변경하는 작업
+//     "기존 코드의 동작을 변경하지 않고 구조를 개선하는 작업"
+//    => Replace type code with Polymorphism
+
 
 class Shape {
-  int type;  // 0: Rect / 1: Circle
+  // int type;  // 0: Rect / 1: Circle
 public:
   virtual ~Shape() {} 
   // 부모의 소멸자는 반드시 가상 이어야 한다.
