@@ -5,6 +5,11 @@ using namespace std;
 class Dialog {
 public:
   void Close() { cout << "Dialog::Close" << endl; }
+
+  // 정적 멤버 함수는 일반 함수 포인터를 이용해서 호출하는 것이 가능합니다.
+  static void goo() {
+    cout << "Dialog::goo" << endl;
+  }
 };
 
 void foo() {
@@ -12,6 +17,10 @@ void foo() {
 }
 
 int main() {
+  void (*f4)() = &Dialog::goo;
+  (*f4)();
+
+
   // 멤버 함수의 주소를 담는 방법
   // => 멤버 함수 포인터
   void (Dialog::*f3)() = &Dialog::Close;
@@ -22,6 +31,7 @@ int main() {
 
   Dialog* p = new Dialog;
   (p->*f3)();
+  //-----------------
 
   void (*f1)() = &foo;
   (*f1)();
