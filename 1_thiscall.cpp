@@ -5,6 +5,10 @@
 //  => 에릭감마 외 3명
 //      1995년 23가지로 정리한 디자인 패턴
 
+// C++ Idioms
+//  => C++ 언어를 이용해서, 문제를 해결할 때 사용하던 관용 설계 방법
+
+
 #include <iostream>
 using namespace std;
 
