@@ -311,7 +311,7 @@ namespace ioacademy
 
 			if ( hwnd == 0 )
 			{
-				printf("[DEBUG] ½ÇÆÐ : %s Server¸¦ Ã£À»¼ö ¾ø½À´Ï´Ù.\n", name.c_str());
+				printf("[DEBUG] ï¿½ï¿½ï¿½ï¿½ : %s Serverï¿½ï¿½ Ã£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.\n", name.c_str());
 				return -1;
 			}
 			return (int)hwnd;
@@ -330,7 +330,7 @@ namespace ioacademy
 
 			if ( hwnd == 0 )
 			{
-				printf("[DEBUG] ½ÇÆÐ : %s Server¸¦ Ã£À»¼ö ¾ø½À´Ï´Ù.\n", name.c_str());
+				printf("[DEBUG] ï¿½ï¿½ï¿½ï¿½ : %s Serverï¿½ï¿½ Ã£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.\n", name.c_str());
 				return -1;
 			}
 			return (int)hwnd;
@@ -369,8 +369,8 @@ namespace ioacademy
 
 		int binder_open( int size)
 		{
-			// open() system callÀ» »ç¿ëÇØ¼­ ¹ÙÀÎ´õ µå¶óÀÌ¹ö¸¦ ¿ÀÇÂ
-			// mmap()À¸·Î shared memory »ý¼º
+			// open() system callï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½Î´ï¿½ ï¿½ï¿½ï¿½ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			// mmap()ï¿½ï¿½ï¿½ï¿½ shared memory ï¿½ï¿½ï¿½ï¿½
 			return rand() % 10000;
 		}
 		*/
