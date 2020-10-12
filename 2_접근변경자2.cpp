@@ -42,4 +42,8 @@ int main() {
   s.push(30);
 
   cout << s.top() << endl;
+  s.pop();
+  cout << s.top() << endl;
+  s.pop();
+  cout << s.top() << endl;
 }
