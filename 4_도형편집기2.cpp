@@ -38,7 +38,6 @@ protected:
   virtual void DrawImpl() {
     cout << "Shape draw" << endl;
   }
-
 };
 
 class Rect : public Shape {
