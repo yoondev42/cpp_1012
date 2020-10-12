@@ -1,6 +1,8 @@
 {
   "files.associations": {
     "stack": "cpp",
-    "iostream": "cpp"
+    "iostream": "cpp",
+    "__functional_base": "cpp",
+    "__config": "cpp"
   }
 }
