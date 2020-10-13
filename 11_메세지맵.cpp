@@ -90,7 +90,7 @@ public:
 
 	BEGIN_MESSAGE_MAP()
 		ADD_MAP(WM_LBUTTONDOWN, &MyWindow::OnLButtonDown)
-		ADD_MAP(WM_KeyDown, &MyWindow::OnKeyDown)
+		ADD_MAP(WM_KEYDOWN, &MyWindow::OnKeyDown)
 	END_MESSAGE_MAP()
 
 
