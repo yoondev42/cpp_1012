@@ -79,6 +79,36 @@ FunctionCommand* cmd(void (*f)()) {
   return new FunctionCommand(f);
 }
 
+class MenuItem {
+  ICommand* handler;
+public:
+  MenuItem() : handler(nullptr) {}
+
+  void setHandler(ICommand* h) {
+    handler = h;
+  }
+
+  virtual void command() {
+    if (handler)
+      handler->execute();
+  }
+};
+
+int main() {
+  Dialog dlg;
+  MenuItem m1, m2;
+
+  m1.setHandler(cmd(&foo));  // foo();
+  m2.setHandler(cmd(&Dialog::open, &dlg));  // Dialog::close()
+
+  m1.command();
+  m2.command();
+}
+
+
+
+
+#if 0
 int main() {
   Dialog dlg;
   ICommand *fp1, *fp2;
@@ -90,6 +120,7 @@ int main() {
   fp2 = cmd(&foo);
   fp2->execute();
 }
+#endif
 
 
 #if 0
