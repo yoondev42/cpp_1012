@@ -2,6 +2,8 @@
 // 복합 객체 - Folder
 //     단일 인터페이스 - getSize()
 //     공통의 부모    - Item
+
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -14,12 +16,19 @@ public:
   virtual ~Item() {}
 
   virtual int getSize() = 0;
+  
+  std::string getName() const {
+    return name;
+  }
 };
 
 class File : public Item {
   int size;
 public:
   File(const string& s, int sz) : Item(s), size(sz) {}
+  ~File() {
+    cout << "파일 삭제: " << getName() << endl;
+  }
 
   int getSize() override {
     return size;
@@ -30,6 +39,12 @@ class Folder : public Item {
   vector<Item*> v;
 public:
   Folder(const string& s) : Item(s) {}
+  ~Folder() {
+    for (Item* e : v) {
+      delete e;
+    }
+    cout << "폴더 삭제: " << getName() << endl;
+  }
 
   void addItem(Item* p) { v.push_back(p); }
 
@@ -58,4 +73,8 @@ int main()
 	cout << f2->getSize() << endl; 
 	cout << fol2->getSize() << endl;
 	cout << fol1->getSize() << endl;
+
+  delete fol1;
+  // 복합객체는 자신이 포함하고 있는 객체를 파괴하는 책임도 가지고 있습니다.
+  //  약속: 복합 객체에 등록하는 모든 객체는 new를 통해 생성되어야 한다.
 }
