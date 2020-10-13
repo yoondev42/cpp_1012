@@ -1,0 +1,238 @@
+a.out:
+(__TEXT,__text) section
+_main:
+0000000100003bf0	pushq	%rbp
+0000000100003bf1	movq	%rsp, %rbp
+0000000100003bf4	pushq	%rbx
+0000000100003bf5	subq	$0x18, %rsp
+0000000100003bf9	leaq	-0x18(%rbp), %rbx
+0000000100003bfd	movq	%rbx, %rdi
+0000000100003c00	callq	__ZN5slistIiEC1Ev ## slist<int>::slist()
+0000000100003c05	movl	$0xa, -0xc(%rbp)
+0000000100003c0c	leaq	-0xc(%rbp), %rsi
+0000000100003c10	movq	%rbx, %rdi
+0000000100003c13	callq	__ZN5slistIiE10push_frontERKi ## slist<int>::push_front(int const&)
+0000000100003c18	movl	$0x14, -0xc(%rbp)
+0000000100003c1f	leaq	-0xc(%rbp), %rsi
+0000000100003c23	movq	%rbx, %rdi
+0000000100003c26	callq	__ZN5slistIiE10push_frontERKi ## slist<int>::push_front(int const&)
+0000000100003c2b	movl	$0x1e, -0xc(%rbp)
+0000000100003c32	leaq	-0xc(%rbp), %rsi
+0000000100003c36	movq	%rbx, %rdi
+0000000100003c39	callq	__ZN5slistIiE10push_frontERKi ## slist<int>::push_front(int const&)
+0000000100003c3e	movq	%rbx, %rdi
+0000000100003c41	callq	__ZN5slistIiE5frontEv ## slist<int>::front()
+0000000100003c46	movl	(%rax), %esi
+0000000100003c48	movq	0x3b1(%rip), %rdi ## literal pool symbol address: __ZNSt3__14coutE
+0000000100003c4f	callq	0x100003eaa ## symbol stub for: __ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEi
+0000000100003c54	movq	%rax, %rdi
+0000000100003c57	callq	__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEPFRS3_S4_E ## std::__1::basic_ostream<char, std::__1::char_traits<char> >::operator<<(std::__1::basic_ostream<char, std::__1::char_traits<char> >& (*)(std::__1::basic_ostream<char, std::__1::char_traits<char> >&))
+0000000100003c5c	xorl	%eax, %eax
+0000000100003c5e	addq	$0x18, %rsp
+0000000100003c62	popq	%rbx
+0000000100003c63	popq	%rbp
+0000000100003c64	retq
+0000000100003c65	nopw	%cs:(%rax,%rax)
+0000000100003c6f	nop
+__ZN5slistIiEC1Ev:
+0000000100003c70	pushq	%rbp
+0000000100003c71	movq	%rsp, %rbp
+0000000100003c74	callq	__ZN5slistIiEC2Ev ## slist<int>::slist()
+0000000100003c79	popq	%rbp
+0000000100003c7a	retq
+0000000100003c7b	nopl	(%rax,%rax)
+__ZN5slistIiE10push_frontERKi:
+0000000100003c80	pushq	%rbp
+0000000100003c81	movq	%rsp, %rbp
+0000000100003c84	callq	__ZN9slistImpl10push_frontEPv ## slistImpl::push_front(void*)
+0000000100003c89	popq	%rbp
+0000000100003c8a	retq
+0000000100003c8b	nopl	(%rax,%rax)
+__ZN5slistIiE5frontEv:
+0000000100003c90	pushq	%rbp
+0000000100003c91	movq	%rsp, %rbp
+0000000100003c94	callq	__ZN9slistImpl5frontEv ## slistImpl::front()
+0000000100003c99	popq	%rbp
+0000000100003c9a	retq
+0000000100003c9b	nopl	(%rax,%rax)
+__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEPFRS3_S4_E:
+0000000100003ca0	pushq	%rbp
+0000000100003ca1	movq	%rsp, %rbp
+0000000100003ca4	callq	__ZNSt3__1L4endlIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_ ## std::__1::basic_ostream<char, std::__1::char_traits<char> >& std::__1::endl<char, std::__1::char_traits<char> >(std::__1::basic_ostream<char, std::__1::char_traits<char> >&)
+0000000100003ca9	popq	%rbp
+0000000100003caa	retq
+0000000100003cab	nopl	(%rax,%rax)
+__ZNSt3__1L4endlIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_:
+0000000100003cb0	pushq	%rbp
+0000000100003cb1	movq	%rsp, %rbp
+0000000100003cb4	pushq	%rbx
+0000000100003cb5	pushq	%rax
+0000000100003cb6	movq	%rdi, %rbx
+0000000100003cb9	movq	(%rdi), %rax
+0000000100003cbc	movq	-0x18(%rax), %rdi
+0000000100003cc0	addq	%rbx, %rdi
+0000000100003cc3	callq	__ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5widenEc ## std::__1::basic_ios<char, std::__1::char_traits<char> >::widen(char) const
+0000000100003cc8	movsbl	%al, %esi
+0000000100003ccb	movq	%rbx, %rdi
+0000000100003cce	callq	0x100003e9e ## symbol stub for: __ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE3putEc
+0000000100003cd3	movq	%rbx, %rdi
+0000000100003cd6	callq	0x100003ea4 ## symbol stub for: __ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE5flushEv
+0000000100003cdb	movq	%rbx, %rax
+0000000100003cde	addq	$0x8, %rsp
+0000000100003ce2	popq	%rbx
+0000000100003ce3	popq	%rbp
+0000000100003ce4	retq
+0000000100003ce5	nopw	%cs:(%rax,%rax)
+0000000100003cef	nop
+__ZN5slistIiEC2Ev:
+0000000100003cf0	pushq	%rbp
+0000000100003cf1	movq	%rsp, %rbp
+0000000100003cf4	callq	__ZN9slistImplC2Ev ## slistImpl::slistImpl()
+0000000100003cf9	popq	%rbp
+0000000100003cfa	retq
+0000000100003cfb	nopl	(%rax,%rax)
+__ZN9slistImplC2Ev:
+0000000100003d00	pushq	%rbp
+0000000100003d01	movq	%rsp, %rbp
+0000000100003d04	pushq	%rbx
+0000000100003d05	pushq	%rax
+0000000100003d06	movq	%rdi, %rbx
+0000000100003d09	callq	__ZNSt3__1L15__get_nullptr_tEv ## std::__1::__get_nullptr_t()
+0000000100003d0e	movq	$0x0, (%rbx)
+0000000100003d15	addq	$0x8, %rsp
+0000000100003d19	popq	%rbx
+0000000100003d1a	popq	%rbp
+0000000100003d1b	retq
+0000000100003d1c	nopl	(%rax)
+__ZNSt3__1L15__get_nullptr_tEv:
+0000000100003d20	pushq	%rbp
+0000000100003d21	movq	%rsp, %rbp
+0000000100003d24	subq	$0x10, %rsp
+0000000100003d28	leaq	-0x8(%rbp), %rdi
+0000000100003d2c	callq	__ZNSt3__19nullptr_tC1EMNS0_5__natEi ## std::__1::nullptr_t::nullptr_t(int std::__1::nullptr_t::__nat::*)
+0000000100003d31	movq	-0x8(%rbp), %rax
+0000000100003d35	addq	$0x10, %rsp
+0000000100003d39	popq	%rbp
+0000000100003d3a	retq
+0000000100003d3b	nopl	(%rax,%rax)
+__ZNSt3__19nullptr_tC1EMNS0_5__natEi:
+0000000100003d40	pushq	%rbp
+0000000100003d41	movq	%rsp, %rbp
+0000000100003d44	callq	__ZNSt3__19nullptr_tC2EMNS0_5__natEi ## std::__1::nullptr_t::nullptr_t(int std::__1::nullptr_t::__nat::*)
+0000000100003d49	popq	%rbp
+0000000100003d4a	retq
+0000000100003d4b	nopl	(%rax,%rax)
+__ZNSt3__19nullptr_tC2EMNS0_5__natEi:
+0000000100003d50	pushq	%rbp
+0000000100003d51	movq	%rsp, %rbp
+0000000100003d54	movq	$0x0, (%rdi)
+0000000100003d5b	popq	%rbp
+0000000100003d5c	retq
+0000000100003d5d	nopl	(%rax)
+__ZN9slistImpl10push_frontEPv:
+0000000100003d60	pushq	%rbp
+0000000100003d61	movq	%rsp, %rbp
+0000000100003d64	pushq	%r15
+0000000100003d66	pushq	%r14
+0000000100003d68	pushq	%rbx
+0000000100003d69	pushq	%rax
+0000000100003d6a	movq	%rsi, %r15
+0000000100003d6d	movq	%rdi, %r14
+0000000100003d70	movl	$0x10, %edi
+0000000100003d75	callq	0x100003ec2 ## symbol stub for: __Znwm
+0000000100003d7a	movq	%rax, %rbx
+0000000100003d7d	movq	(%r14), %rdx
+0000000100003d80	movq	%rax, %rdi
+0000000100003d83	movq	%r15, %rsi
+0000000100003d86	callq	__ZN4nodeC1EPvPS_ ## node::node(void*, node*)
+0000000100003d8b	movq	%rbx, (%r14)
+0000000100003d8e	addq	$0x8, %rsp
+0000000100003d92	popq	%rbx
+0000000100003d93	popq	%r14
+0000000100003d95	popq	%r15
+0000000100003d97	popq	%rbp
+0000000100003d98	retq
+0000000100003d99	movq	%rax, %r14
+0000000100003d9c	movq	%rbx, %rdi
+0000000100003d9f	callq	0x100003ebc ## symbol stub for: __ZdlPv
+0000000100003da4	movq	%r14, %rdi
+0000000100003da7	callq	0x100003e8c ## symbol stub for: __Unwind_Resume
+0000000100003dac	ud2
+0000000100003dae	nop
+__ZN4nodeC1EPvPS_:
+0000000100003db0	pushq	%rbp
+0000000100003db1	movq	%rsp, %rbp
+0000000100003db4	callq	__ZN4nodeC2EPvPS_ ## node::node(void*, node*)
+0000000100003db9	popq	%rbp
+0000000100003dba	retq
+0000000100003dbb	nopl	(%rax,%rax)
+__ZN4nodeC2EPvPS_:
+0000000100003dc0	pushq	%rbp
+0000000100003dc1	movq	%rsp, %rbp
+0000000100003dc4	movq	%rsi, (%rdi)
+0000000100003dc7	movq	%rdx, 0x8(%rdi)
+0000000100003dcb	popq	%rbp
+0000000100003dcc	retq
+0000000100003dcd	nopl	(%rax)
+__ZN9slistImpl5frontEv:
+0000000100003dd0	pushq	%rbp
+0000000100003dd1	movq	%rsp, %rbp
+0000000100003dd4	movq	(%rdi), %rax
+0000000100003dd7	movq	(%rax), %rax
+0000000100003dda	popq	%rbp
+0000000100003ddb	retq
+0000000100003ddc	nopl	(%rax)
+__ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5widenEc:
+0000000100003de0	pushq	%rbp
+0000000100003de1	movq	%rsp, %rbp
+0000000100003de4	pushq	%rbx
+0000000100003de5	pushq	%rax
+0000000100003de6	movq	%rdi, %rsi
+0000000100003de9	leaq	-0x10(%rbp), %rbx
+0000000100003ded	movq	%rbx, %rdi
+0000000100003df0	callq	0x100003e98 ## symbol stub for: __ZNKSt3__18ios_base6getlocEv
+0000000100003df5	movq	%rbx, %rdi
+0000000100003df8	callq	__ZNSt3__1L9use_facetINS_5ctypeIcEEEERKT_RKNS_6localeE ## std::__1::ctype<char> const& std::__1::use_facet<std::__1::ctype<char> >(std::__1::locale const&)
+0000000100003dfd	movq	%rax, %rdi
+0000000100003e00	callq	__ZNKSt3__15ctypeIcE5widenEc ## std::__1::ctype<char>::widen(char) const
+0000000100003e05	movl	%eax, %ebx
+0000000100003e07	leaq	-0x10(%rbp), %rdi
+0000000100003e0b	callq	0x100003eb0 ## symbol stub for: __ZNSt3__16localeD1Ev
+0000000100003e10	movsbl	%bl, %eax
+0000000100003e13	addq	$0x8, %rsp
+0000000100003e17	popq	%rbx
+0000000100003e18	popq	%rbp
+0000000100003e19	retq
+0000000100003e1a	movq	%rax, %rbx
+0000000100003e1d	leaq	-0x10(%rbp), %rdi
+0000000100003e21	callq	0x100003eb0 ## symbol stub for: __ZNSt3__16localeD1Ev
+0000000100003e26	movq	%rbx, %rdi
+0000000100003e29	callq	0x100003e8c ## symbol stub for: __Unwind_Resume
+0000000100003e2e	ud2
+0000000100003e30	movq	%rax, %rdi
+0000000100003e33	callq	___clang_call_terminate
+0000000100003e38	nopl	(%rax,%rax)
+__ZNSt3__1L9use_facetINS_5ctypeIcEEEERKT_RKNS_6localeE:
+0000000100003e40	pushq	%rbp
+0000000100003e41	movq	%rsp, %rbp
+0000000100003e44	movq	0x1bd(%rip), %rsi ## literal pool symbol address: __ZNSt3__15ctypeIcE2idE
+0000000100003e4b	callq	0x100003e92 ## symbol stub for: __ZNKSt3__16locale9use_facetERNS0_2idE
+0000000100003e50	popq	%rbp
+0000000100003e51	retq
+0000000100003e52	nopw	%cs:(%rax,%rax)
+0000000100003e5c	nopl	(%rax)
+__ZNKSt3__15ctypeIcE5widenEc:
+0000000100003e60	pushq	%rbp
+0000000100003e61	movq	%rsp, %rbp
+0000000100003e64	movq	(%rdi), %rax
+0000000100003e67	movl	$0xa, %esi
+0000000100003e6c	callq	*0x38(%rax)
+0000000100003e6f	movsbl	%al, %eax
+0000000100003e72	popq	%rbp
+0000000100003e73	retq
+0000000100003e74	nopw	%cs:(%rax,%rax)
+0000000100003e7e	nop
+___clang_call_terminate:
+0000000100003e80	pushq	%rax
+0000000100003e81	callq	0x100003ec8 ## symbol stub for: ___cxa_begin_catch
+0000000100003e86	callq	0x100003eb6 ## symbol stub for: __ZSt9terminatev

@@ -30,10 +30,11 @@ public:
   void* front() { return head->data; }
 };
 
-// 위의 구현을 이용하는 템플릿 인터페이스를 만들자.
-template <typename T> class slist : public slistImpl {
+// 위의 구현을 이용하는 템플릿 인터페이스를 만들자. - Adapter Pattern
+//  => 인라인 치환 후, 인라인 함수가 호출되지 않을 때는 코드 메모리 영역에서 사라진다.
+template <typename T> class slist : private slistImpl {
 public:
-  void push_front(const T& a) {
+  inline void push_front(const T& a) {
     //  a - const T&
     // &a - const T*
     // const_cast<T*>(&a) - T*
@@ -41,7 +42,7 @@ public:
     slistImpl::push_front(const_cast<T*>(&a));
   }
 
-  T& front() {
+  inline T& front() {
     return *(static_cast<T*>(slistImpl::front()));
   }
 };
