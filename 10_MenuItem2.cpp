@@ -26,6 +26,11 @@ public:
   }
 };
 
+enum MenuId {
+  MENU_DIALOG_OPEN = 100,
+  MENU_DIALOG_CLOSE = 200,
+};
+
 class Dialog : public IMenuListener {
   void open() {
     cout << "Dialog open" << endl;
@@ -40,10 +45,10 @@ class Dialog : public IMenuListener {
   //   => 인터페이스에 어떤 객체로부터 이벤트가 발생했는지 식별하는 정보가 추가되어야 한다!
   void onCommand(int id) override {
     switch (id) {
-      case 100:
+      case MENU_DIALOG_OPEN:
         open();
         break;
-      case 200:
+      case MENU_DIALOG_CLOSE:
         close();
         break;
     }
@@ -52,8 +57,8 @@ class Dialog : public IMenuListener {
 };
 
 int main() {
-  MenuItem m(100);
-  MenuItem m2(200);
+  MenuItem m(MENU_DIALOG_OPEN);
+  MenuItem m2(MENU_DIALOG_CLOSE);
 
   Dialog dlg;
 

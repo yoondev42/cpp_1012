@@ -5,6 +5,7 @@
     "__functional_base": "cpp",
     "__config": "cpp",
     "map": "cpp",
-    "list": "cpp"
+    "list": "cpp",
+    "functional": "cpp"
   }
 }

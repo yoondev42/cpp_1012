@@ -14,7 +14,7 @@
 //-------------------
 
 class CWinApp;
-CWinApp* g_app;  // nullptr
+CWinApp* g_app;  
 
 // Application 상태를 관리하는 객체
 class CWinApp {
