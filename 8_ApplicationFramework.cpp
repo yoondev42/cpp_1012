@@ -14,7 +14,7 @@
 //-------------------
 
 class CWinApp;
-CWinApp* g_app;
+CWinApp* g_app;  // nullptr
 
 // Application 상태를 관리하는 객체
 class CWinApp {
@@ -60,3 +60,5 @@ public:
 
 CMyApp theApp;
 // 1. 전역 객체의 생성은 main 함수가 호출되기 전에 수행된다.
+// CWinApp()
+// CMyApp()
