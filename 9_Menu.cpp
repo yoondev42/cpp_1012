@@ -14,8 +14,10 @@ using std::cin;
 
 // 핵심: PopupMenu
 //   => MenuItem뿐 아니라 자기 자신과 동일한 타입도 포함할 수 있어야 한다.
-//    : 단일객체(MenuItem)와 복합객체(PopupMenu)는 공통의 부모를 가져야 한다.
+//    1. 단일객체(MenuItem)와 복합객체(PopupMenu)는 공통의 부모를 가져야 한다.
 //      -> "재귀적 포함"을 구현한다.
+//    2. 단일객체와 복합객체의 사용 방법이 동일하다.
+//      -> 동일한 command를 이용해, 다형성을 구현한다.
 
 // 클래스의 모든 필드는 private으로 만들어야 한다.
 // 필드의 값을 읽거나 변경해야 하면, 반드시 메소드를 통해 구현되어야 한다.
@@ -39,6 +41,8 @@ public:
 
   void command() override {
     cout << getTitle() << "이 선택됨" << endl;
+    getchar();
+    getchar();
   }
 };
 
@@ -76,5 +80,19 @@ public:
 };
 
 int main() {
-  
+  PopupMenu* menubar = new PopupMenu("MENUBAR");
+  PopupMenu* p1 = new PopupMenu("화면 설정");
+  PopupMenu* p2 = new PopupMenu("소리 설정");
+
+  menubar->addMenu(p1);
+  menubar->addMenu(p2);
+
+  p1->addMenu(new MenuItem("해상도 설정"));
+  p1->addMenu(new MenuItem("색상 설정"));
+  p1->addMenu(new MenuItem("기타 설정"));
+
+  p2->addMenu(new MenuItem("볼륨 설정"));
+  p2->addMenu(new MenuItem("음향 설정"));
+
+  menubar->command();
 }
