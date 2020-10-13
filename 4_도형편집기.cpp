@@ -24,7 +24,7 @@ using namespace std;
 //       Java, C#: Clone()
 //     Swift/ObjC: copy()
 
-// 7. 리팩토링(마틴 파울러): 유지보수가 불가능한 나쁜 코드를 유지 보수가 가능한 코드로 변경하는 작업
+// 7. 리팩토링(마틴 파울러): 유지보수가 불가능한 나쁜 코드(코드 냄새)를 유지 보수가 가능한 코드로 변경하는 작업
 //     "기존 코드의 동작을 변경하지 않고 구조를 개선하는 작업"
 //    => Replace type code with Polymorphism
 

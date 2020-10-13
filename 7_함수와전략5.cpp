@@ -71,3 +71,9 @@ int main() {
 //     => 변하는 것을 템플릿 인자로 분리한다.(단위 전략)
 //     => 인라인화 가능한 코드를 생성할 수 있기 때문에 빠르다.
 //        실행시간에 정책을 교체하는 것이 불가능하다.
+
+//-------
+// 1. Adapter Pattern
+// 2. Prototype Pattern
+// 3. Template Method Pattern
+// 4. Strategy Pattern

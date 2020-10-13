@@ -24,6 +24,7 @@ public:
   //     변하는 부분은 가상함수를 통해 자식이 재정의할 수 있도록 한다.
   //     => 변하는 것을 가상함수로 분리한다.
   //     => Template Method Pattern
+  //     => NVI(Non Virtual Interface)
   void Draw() { 
     m.lock();
     DrawImpl();

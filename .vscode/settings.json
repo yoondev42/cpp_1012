@@ -3,6 +3,7 @@
     "stack": "cpp",
     "iostream": "cpp",
     "__functional_base": "cpp",
-    "__config": "cpp"
+    "__config": "cpp",
+    "map": "cpp"
   }
 }
