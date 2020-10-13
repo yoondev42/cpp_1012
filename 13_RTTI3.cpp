@@ -42,6 +42,9 @@ class Dog : public Animal {
 IMPLEMENT_DYNAMIC(Animal)
 IMPLEMENT_DYNAMIC(Dog)
 
+#define RUNTIME_CLASS(classname)      &(classname::class##classname)
+
+
 void foo(Animal* p) {
   // p가 Dog인지 조사하는 방법 -> RTTI
   // if (typeid(*p) == typeid(Dog)) {
@@ -52,11 +55,15 @@ void foo(Animal* p) {
     cout << "Dog" << endl;
   }
 
+  if (p->GetRuntimeClass() == RUNTIME_CLASS(Dog)) {
+    cout << "Dog" << endl;
+  }
+
   cout << p->GetRuntimeClass()->name << endl;
 }
 
 int main() {
-  Animal d;
+  Dog d;
   foo(&d);
 }
 
