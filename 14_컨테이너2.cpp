@@ -56,7 +56,6 @@ public:
 //  템플릿은 코드를 생성하는 기술이기 때문에, 코드 메모리 사용량이 증가한다.
 //  object* 기반의 컨테이너는 템플릿을 이용하지 않기 때문에 코드 메모리 사용량은 증가하지 않는다.
 
-
 class Integer : public object {
   int n;
 public:

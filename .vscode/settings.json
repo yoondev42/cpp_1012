@@ -4,6 +4,7 @@
     "iostream": "cpp",
     "__functional_base": "cpp",
     "__config": "cpp",
-    "map": "cpp"
+    "map": "cpp",
+    "list": "cpp"
   }
 }
