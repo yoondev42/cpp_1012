@@ -59,3 +59,15 @@ int main() {
   int n = s.front();
   cout << n << endl;
 }
+
+// 컨테이너 설계 기술 3가지
+// 1. object* 
+// 2. Template
+// 3. Thin Template
+
+// Design Pattern
+// 1. Adapter Pattern
+// 2. Prototype Pattern
+// 3. Template Method Pattern
+// 4. Strategy Pattern
+// 5. Composite Pattern
