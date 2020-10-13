@@ -58,9 +58,7 @@ public:
 };
 
 
-
-int main()
-{
+int main() {
 	Folder* fol1 = new Folder("ROOT");
 	Folder* fol2 = new Folder("A");
 
