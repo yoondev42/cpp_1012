@@ -61,11 +61,40 @@ public:
 
 std::map<int, Window*> Window::this_map;
 
+// 아래 코드의 문제점
+//  - 메세지맵을 통해서 가상 함수의 비용을 줄일 수 있지만
+//    메세지를 정의하기 위한 방법이 어렵다.
+//  프레임워크: 세부 구현을 감추고, 사용자들이 편리하게 사용할 수 있는 도구를 제공해야 한다.
+//      => 매크로
+
+#define BEGIN_MESSAGE_MAP()							\
+virtual AFX_MSG* GetMessageMap() {					\
+	using HANDLER = void(Window::*)();				\
+	static AFX_MSG msgMap[] = {
+
+#define ADD_MAP(message, handler)					\
+		{ message, static_cast<HANDLER>(handler) },
+		
+#define END_MESSAGE_MAP()							\
+		{ 0, 0 },									\
+	};												\
+	return msgMap;									\
+}
+
+// WM_KEYDOWN 이벤트를 추가해서, 멤버 함수를 하나 호출해보세요.
 //---------------------------
 class MyWindow : public Window {
 public:
 	void OnLButtonDown() { cout << "LBUTTON" << endl; }
+	void OnKeyDown() { cout << "KeyDown" << endl; }
 
+	BEGIN_MESSAGE_MAP()
+		ADD_MAP(WM_LBUTTONDOWN, &MyWindow::OnLButtonDown)
+		ADD_MAP(WM_KeyDown, &MyWindow::OnKeyDown)
+	END_MESSAGE_MAP()
+
+
+#if 0
 	virtual AFX_MSG* GetMessageMap() {
 		using HANDLER = void(Window::*)();
 
@@ -76,6 +105,7 @@ public:
 
 		return msgMap;
 	}
+#endif
 };
 
 int main() {
