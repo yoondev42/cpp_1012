@@ -23,13 +23,53 @@ public:
   }
 };
 
+
 void foo() { cout << "foo" << endl; }
 
-int main() {
-  FunctionCommand fp(&foo);
-  fp.execute();
-}
 
 
 // 2. 모든 클래스의 멤버 함수를 담을 수 있는 클래스 타입을 설계해보자.
+//  : 모든 타입의 멤버 함수를 참조하기 위해서는 템플릿 기반으로 설계되어야 한다.
+template <typename T>
+class MemberCommand {
+  using HANDLER = void(T::*)();
+
+  HANDLER handler;
+  T* object;
+public:
+  MemberCommand(HANDLER h, T* obj) {
+    handler = h;
+    object = obj;
+  }
+
+  void execute() {
+    (object->*handler)();
+  }
+};
+
+class Dialog {
+public:
+  void open() { cout << "Dialog open" << endl; }
+};
+
+class Window {
+public:
+  void show() { cout << "Window show" << endl; }
+};
+
+int main() {
+  Dialog dlg;
+  MemberCommand<Dialog> fp1(&Dialog::open, &dlg);
+
+  Window window;
+  MemberCommand<Window> fp2(&Window::show, &window);
+
+  fp1.execute();
+  fp2.execute();
+
+  // FunctionCommand fp(&foo);
+  // fp.execute();
+}
+
+
 // 3. 위의 두 개의 타입을 공통의 부모로 묶는다.
