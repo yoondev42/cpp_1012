@@ -49,6 +49,7 @@ public:
   }
 };
 
+#if 0
 int main() {
   slist<int> s;
 
@@ -59,6 +60,7 @@ int main() {
   int n = s.front();
   cout << n << endl;
 }
+#endif
 
 // 컨테이너 설계 기술 3가지
 // 1. object* 
@@ -71,3 +73,29 @@ int main() {
 // 3. Template Method Pattern
 // 4. Strategy Pattern
 // 5. Composite Pattern
+
+
+
+
+// Upcasting
+// Downcasting
+
+class Animal {
+public:
+  virtual ~Animal() {}
+};
+
+class Dog : public Animal {
+
+};
+
+// 부모의 포인터 타입은 자식 객체의 주소를 담을 수 있다.
+//  => 자식의 포인터 타입은 부모의 포인터 타입으로 암묵적인 캐스팅은 허용한다.  - Upcasting
+
+//  => 부모의 포인터 타입을 자식의 포인터 타입으로 변환하기 위해서는 명시적인 캐스팅이 필요하다.  - Downcating
+
+int main() {
+  Animal* p = new Dog;  // ?
+
+  Dog* p2 = dynamic_cast<Dog*>(p);
+}
