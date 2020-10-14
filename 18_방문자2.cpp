@@ -60,6 +60,18 @@ public:
 
     // 복합객체가 포함하고 있는 모든 메뉴들에 대해 방문자를 전달해야 한다.
     for (BaseMenu* e : v) {
+      
+      
+      // p->visit(e);
+      // e의 타입은 BaseMenu* 타입이다.
+      //  만약 MenuItem 타입이면 p->visit(MenuItem*)
+      //  만약 PopupMenu 타입이면 p->visit(PopupMenu*)
+      // if (typeid(*e) == typeid(MenuItem)) {
+      //   p->visit(static_cast<MenuItem*>(e));
+      // } else {
+      //   p->visit(static_cast<PopupMenu*>(e));
+      // }
+      //  Replace type code with polymorphism
       e->accept(p);
     }
   }
@@ -91,6 +103,9 @@ public:
   }
 };
 
+// C++11 - snprintf
+
+
 //--------------------------------
 // 이제 메뉴 시스템에 다양한 기능을 추가하는 방문자들을 제공하면 됩니다.
 // 메뉴 관련 클래스에 새로운 멤버 함수를 추가하지 않아도 기능을 확장할 수 있는 효과를 누립니다.
@@ -98,15 +113,21 @@ class TitleDecorationVisitor : public IMenuVisitor {
 public:
   void visit(PopupMenu* p) override {
     string s = p->getTitle();
-    string s2 = string("[") + s + string("]");
-
+    // string s2 = string("[") + s + string("]");
+    char buf[64];
+    snprintf(buf, sizeof buf, "[%s]", s.c_str());
+    
     // 캡슐화 위배
     //  : 방문자 패턴으로 인해서 읽기 전용으로 설계했던 멤버 데이터에 대한 수정이 가능하도록 변경해야 한다.
-    p->setTitle(s2);
+    p->setTitle(string(buf));
   }
 
   void visit(MenuItem* p) override {
+    string s = p->getTitle();
+    char buf[64];
+    snprintf(buf, sizeof buf, "<%s>", s.c_str());
 
+    p->setTitle(string(buf));
   }
 };
 
