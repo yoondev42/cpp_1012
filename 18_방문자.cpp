@@ -108,7 +108,6 @@ int main() {
 
   // for_each(s.begin(), s.end(), twice);
   // for_each(s.begin(), s.end(), print);
-
 }
 
 
