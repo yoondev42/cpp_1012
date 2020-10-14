@@ -7,6 +7,7 @@
     "map": "cpp",
     "list": "cpp",
     "functional": "cpp",
-    "algorithm": "cpp"
+    "algorithm": "cpp",
+    "string": "cpp"
   }
 }
