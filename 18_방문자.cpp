@@ -70,9 +70,34 @@ public:
   }
 };
 
+// C++의 컨테이너는 방문자 패턴을 지원하지 않습니다.
+// 이유: 반복자를 통해서 해당 방문자의 동작을 동일하게 하는 것이 가능합니다.
+
+#include <list>
+#include <algorithm>  // for_each
+
+void twice(int& n) {
+  n *= 2;
+}
+
+void print(int n) {
+  cout << n << endl;
+}
+
+int main() {
+  list<int> s;
+  s.push_front(10);
+  s.push_front(20);
+  s.push_front(30);
+
+  for_each(s.begin(), s.end(), twice);
+  for_each(s.begin(), s.end(), print);
+
+}
 
 
 
+#if 0
 int main() {
   slist<int> s;
   s.push_front(10);
@@ -96,3 +121,22 @@ int main() {
 
 
 }
+#endif
+
+#if 0
+class Animal {
+public:
+  virtual ~Animal() { cout << "Animal" << endl; }
+};
+
+class Dog : public Animal {
+public:
+  ~Dog() { cout << "Dog" << endl; }
+};
+
+int main() {
+  // Dog d;
+  Animal* p = new Dog;
+  delete p;
+}
+#endif
