@@ -31,6 +31,8 @@ CRuntimeClass* classname::GetRuntimeClass() {          \
 }                                                      \
 CRuntimeClass classname::class##classname = { #classname };
 
+#define RUNTIME_CLASS(classname)      &(classname::class##classname)
+
 class Animal {
   DECLARE_DYNAMIC(Animal)
 };
@@ -42,7 +44,7 @@ class Dog : public Animal {
 IMPLEMENT_DYNAMIC(Animal)
 IMPLEMENT_DYNAMIC(Dog)
 
-#define RUNTIME_CLASS(classname)      &(classname::class##classname)
+
 
 
 void foo(Animal* p) {
