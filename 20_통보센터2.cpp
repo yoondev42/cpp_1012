@@ -18,9 +18,13 @@ int main() {
   function<void(int)> fp;
   fp = &goo;
   fp = bind(&hoo, 30, _1);
+  
+  // koo를 호출할 때
+  
+  fp(30);
+  // fp(20) -> koo - 20, 20, 10, 20
+  // fp(30) -> koo - 30, 30, 10, 30
 
-
-  fp(10);
 }
 
 
