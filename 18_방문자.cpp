@@ -84,14 +84,30 @@ void print(int n) {
   cout << n << endl;
 }
 
+struct Twice {
+  void operator()(int& n) const {
+    n *= 2;
+  }
+};
+
+struct Print {
+  void operator()(int n) const {
+    cout << n << endl;
+  }
+};
+
+
 int main() {
   list<int> s;
   s.push_front(10);
   s.push_front(20);
   s.push_front(30);
 
-  for_each(s.begin(), s.end(), twice);
-  for_each(s.begin(), s.end(), print);
+  for_each(s.begin(), s.end(), Twice());
+  for_each(s.begin(), s.end(), Print());
+
+  // for_each(s.begin(), s.end(), twice);
+  // for_each(s.begin(), s.end(), print);
 
 }
 

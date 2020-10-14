@@ -6,6 +6,7 @@
     "__config": "cpp",
     "map": "cpp",
     "list": "cpp",
-    "functional": "cpp"
+    "functional": "cpp",
+    "algorithm": "cpp"
   }
 }
