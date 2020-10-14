@@ -52,12 +52,27 @@ public:
 
   const T& front() { return head->data; }
 };
+//------------------------
+// 사용자는 IVisitor의 인터페이스의 구현을 통해, slist에 새로운 기능을 확장할 수 있다.
+template <typename T>
+class TwiceVisitor : public IVisitor<T> {
+public:
+  void visit(T& n) override {
+    n *= 2; 
+  }
+};
 
 int main() {
   slist<int> s;
   s.push_front(10);
   s.push_front(20);
   s.push_front(30);
+
+  TwiceVisitor<int> v;
+  s.accept(&v);
+
+  cout << s.front() << endl;
+
 
   // s 안의 모든 값을 2배 증가하고 싶다.
   //  문제점: 특정 작업을 수행하는 멤버 함수가 제공되지 않는다.
