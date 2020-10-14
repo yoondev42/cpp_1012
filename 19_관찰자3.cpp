@@ -22,6 +22,7 @@ public:
         IoEnumFiles("C:\\Plugin", "*.dll", LoadModule, this);
     }
 
+    // dlopen / dlsym
     static int LoadModule(string name, void* param) {
         cout << name << endl;
 
