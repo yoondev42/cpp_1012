@@ -62,6 +62,17 @@ public:
   }
 };
 
+template <typename T>
+class PrintVisitor : public IVisitor<T> {
+public:
+  void visit(T& n) override {
+    cout << n << endl;
+  }
+};
+
+
+
+
 int main() {
   slist<int> s;
   s.push_front(10);
@@ -71,7 +82,10 @@ int main() {
   TwiceVisitor<int> v;
   s.accept(&v);
 
-  cout << s.front() << endl;
+  PrintVisitor<int> v2;
+  s.accept(&v2);
+
+  // cout << s.front() << endl;
 
 
   // s 안의 모든 값을 2배 증가하고 싶다.
