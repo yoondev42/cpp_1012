@@ -34,6 +34,12 @@ T1 xfind(T1 first, T1 last, T2 c) {
 }
 
 int main() {
+  int x[] = { 1, 2, 3, 4, 5 };
+  int *p2 = xfind(x, x + 5, 3);
+  if (p2 != x + 5) {
+    cout << *p2 << endl;
+  }
+
   double a[] = { 1, 2, 3, 4, 5};
   double* p = xfind(a, a + 5, 3);
   if (p != a + 5) {
