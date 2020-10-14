@@ -84,3 +84,13 @@ int main() {
     cout << iter->next() << endl;
   }
 }
+
+//              C++ Iterator            Java Interator
+//  인터페이스   암묵적(연산자 오버로딩)       명시적인 인터페이스 타입을 약속(Iterator)
+// 반복자 얻기   암묵적(begin / end)       명시적인 인터페이스 타입을 약속(Iterable)
+
+
+// find          <algorithm>           각각의 컨테이너가 메소드를 통해 구현
+//            C++의 반복자를 만족하면,           알고리즘 함수를 이용 X
+//            C++이 제공하는 알고리즘 함수를 
+//              이용하는 것이 가능하다.
