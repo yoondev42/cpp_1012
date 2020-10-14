@@ -32,6 +32,8 @@ template <typename T>
 class slist {
   node<T>* head;
 public:
+  using iterator = slist_iterator<T>;
+
   slist() : head(nullptr) {}
 
   void push_front(const T& a) {
@@ -52,14 +54,19 @@ public:
 //  !=    : 동등성 비교
 // 2. 모든 컨테이너는 자신의 처음과 끝을 가르키는 반복자를 꺼내는 방법을 제공해야 한다.
 //    begin / end
+// 3. 컨테이너의 설계자는 자신의 컨테이너의 반복자의 이름을 동일한 이름으로 약속해야 합니다.
+
+#include <list>
 
 int main() {
-  slist<int> s;
+  list<int> s;
   s.push_front(10);
   s.push_front(20);
   s.push_front(30);
 
-  slist_iterator<int> iter = s.begin();
+  // slist_iterator<int> iter = s.begin();
+  list<int>::iterator iter = s.begin();
+
   while (iter != s.end()) {
     cout << *iter << endl;
     ++iter;
