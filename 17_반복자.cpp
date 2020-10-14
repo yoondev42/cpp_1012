@@ -58,6 +58,35 @@ public:
 
 #include <list>
 
+template <typename T>
+class xvector {
+  T* buff;
+  int size;
+public:
+  xvector(int s) : size(s) { buff = new T[size]; }
+
+  T& operator[](int index) { return buff[index]; }
+};
+
+int main() {
+  xvector<int> x(3);
+  x[0] = 10;
+  x[1] = 20;
+  x[2] = 30;
+
+  // 위의 xvector가 아래의 코드가 동작할 수 있도록 만들어보세요.
+  #if 0
+  xvector<int>::iterator iter = x.begin();
+
+  while (iter != x.end()) {
+    cout << *iter << endl;
+    ++iter;
+  }
+  #endif
+}
+
+
+#if 0
 int main() {
   list<int> s;
   s.push_front(10);
@@ -72,3 +101,4 @@ int main() {
     ++iter;
   }
 }
+#endif
