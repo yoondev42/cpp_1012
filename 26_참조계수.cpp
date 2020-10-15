@@ -14,6 +14,10 @@ public:
     if (--mCount == 0)
       delete this;
   }
+
+  void draw() {
+    cout << "Image draw" << endl;
+  }
 };
 
 // Image*를 바로 사용하면, 참조계수를 직접 관리해야 한다.
@@ -34,11 +38,18 @@ public:
   ImageProxy(const ImageProxy& p) : obj(p.obj) {
     obj->addRef();
   }
+
+  // 진짜 Image* 처럼 사용할 수 있어야 한다.
+  Image* operator->() { return obj; }
+  Image& operator*() { return *obj; }
 };
 
 int main() {
   ImageProxy p1(new Image);
   ImageProxy p2 = p1;
+
+  p1->draw();
+  (*p2).draw();
 }
 
 
