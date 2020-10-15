@@ -9,6 +9,7 @@
     "functional": "cpp",
     "algorithm": "cpp",
     "string": "cpp",
-    "__mutex_base": "cpp"
+    "__mutex_base": "cpp",
+    "mutex": "cpp"
   }
 }

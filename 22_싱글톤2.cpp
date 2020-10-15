@@ -62,7 +62,8 @@ public:
   static Cursor& getInstance() {
     // sMutex.lock();
     // AutoLock<mutex> al(sMutex);
-
+    // scoped_lock<mutex> al(sMutex);
+    
     lock_guard<mutex> al(sMutex);
 
     if (sInstance == nullptr)
