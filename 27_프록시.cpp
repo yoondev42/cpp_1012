@@ -14,7 +14,6 @@
 
 
 // 27_프록시.cpp
-
 #include <iostream>
 #include "ioacademy.h"
 using namespace std;
@@ -112,3 +111,4 @@ int main() {
 	}
 }
 #endif
+
