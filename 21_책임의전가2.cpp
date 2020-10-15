@@ -1,7 +1,17 @@
 // 21_책임의전가.cpp
 
 // Chain of Responsibility Pattern
-//  의도: 발생한 이벤트를 다음 객체에게 전달하는 패턴
+//  의도: 발생한 이벤트를 처리되지 않을 경우, 다음 객체에게 전달하는 패턴
+//        처리할 수 있을 때까지 고리에 따라 이벤트를 전달한다.
+
+//  GUI 라이브러리 - 터치(클릭) 이벤트
+//  메뉴(MFC)
+//       View -> Document -> Frame -> App 순서로 메뉴 메시지가 전달된다.
+
+//  결과: 이벤트와 이벤트 처리 객체의 결합도를 줄일 수 있다.
+//   객체 지향 5대 원칙 - SOLID
+//     SRP: 단일 책임의 원칙 - 모듈은 단 하나의 책임을 가져야 한다.
+
 
 #include <iostream>
 #include <map>
@@ -83,7 +93,7 @@ class ImageView : public Window {
 public:
 	bool OnLButtonDown() override {
 		cout << "ImageView LButton" << endl;
-		return false;
+		return true;
 	}
 };
 
