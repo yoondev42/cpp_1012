@@ -11,6 +11,8 @@
     "string": "cpp",
     "__mutex_base": "cpp",
     "mutex": "cpp",
-    "vector": "cpp"
+    "vector": "cpp",
+    "ostream": "cpp",
+    "chrono": "cpp"
   }
 }
