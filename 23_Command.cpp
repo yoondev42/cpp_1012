@@ -1,6 +1,7 @@
 // 23_Command.cpp
 #include <iostream>
 #include <vector>
+#include <stack>
 using namespace std;
 
 // Undo / Redo
@@ -28,10 +29,17 @@ public:
 
 
 // 모든 명령을 객체화 - ICommand 도입
+// 인터페이스
+//   장점: 교체 가능한 유연한 디자인이 가능하다.
+//   단점: 새로운 기능의 추가가 불편하다.
+//        기본 구현을 제공하면, 하위 클래스가 새로운 기능을 추가하지 않아도 동작한다.
 struct ICommand {
   virtual ~ICommand() {}
 
   virtual void Execute() = 0;
+
+  virtual bool CanUndo() { return false; }
+  virtual void Undo() {}
 };
 
 class AddRectCommand : public ICommand {
@@ -42,6 +50,14 @@ public:
   void Execute() override {
     shapes.push_back(new Rect);
   }
+
+  bool CanUndo() override { return true; }
+
+  void Undo() override {
+    Shape* p = shapes.back();
+    shapes.pop_back();
+    delete p;
+  }
 };
 
 class AddCircleCommand : public ICommand {
@@ -51,6 +67,14 @@ public:
 
   void Execute() override {
     shapes.push_back(new Circle);
+  }
+
+  bool CanUndo() override { return true; }
+
+  void Undo() override {
+    Shape* p = shapes.back();
+    shapes.pop_back();
+    delete p;
   }
 };
 
@@ -69,7 +93,7 @@ public:
 
 int main() {
   vector<Shape*> shapes;
-
+  stack<ICommand*> undo_stack;
 
   while (1) {
     ICommand* p = nullptr;
@@ -85,9 +109,19 @@ int main() {
     else if (cmd == 9) {
       p = new DrawCommand(shapes);
     }
+    else if (cmd == 0) {
+      p = undo_stack.top();
+      undo_stack.pop();
+
+      if (p->CanUndo())
+        p->Undo();
+      continue;
+    }
 
     if (p) {
       p->Execute();
+      undo_stack.push(p);
+
     }
   }
 }
