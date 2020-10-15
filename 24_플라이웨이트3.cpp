@@ -38,11 +38,42 @@ map<std::string, Image*> Image::cache;
 
 
 
-
+#if 0
 int main() {
   Image* img1 = Image::createImage("https://a.com/a.png");
   img1->draw();
 
   Image* img2 = Image::createImage("https://a.com/a.png");
   img2->draw();
+}
+#endif
+
+// C++에서 객체 복사
+// 1. 깊은 복사 
+// 2. 참조 계수
+// 3. 복사 금지
+// 4. 소유권 이전
+
+class Sample {
+public:
+  Sample() {}
+
+  void foo() {
+    Sample s1;
+    Sample s2;
+    // Sample s2 = s1;
+    // s2 = s1;
+  }
+
+private:
+  // 복사/대입 금지
+  Sample(const Sample&) = delete;
+  Sample& operator=(const Sample&) = delete;
+};
+
+int main() {
+  Sample s1;
+  s1.foo();
+
+  // Sample s2 = s1;  // !
 }

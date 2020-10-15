@@ -38,6 +38,7 @@ private:
 
   ImageFactory() {}
 
+  // 복사 금지
   ImageFactory(const ImageFactory&) = delete;
   ImageFactory& operator=(const ImageFactory&) = delete;
 public:
