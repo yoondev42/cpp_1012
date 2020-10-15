@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+#if 0
 class RefCountedObject {
   int mCount;
 public:
@@ -16,6 +17,28 @@ public:
 
 class Image : public RefCountedObject {
 public:
+  void draw() {}
+};
+#endif
+
+template <typename T>
+class RefCountedObject {
+  int mCount;
+public:
+  RefCountedObject() : mCount(0) {}
+  ~RefCountedObject() { cout << "RefCountedObject 파괴" << endl; }
+
+  void addRef()  { ++mCount; }
+  void release() {
+    if (--mCount == 0)
+      delete static_cast<T*>(this);
+  }
+};
+
+class Image : public RefCountedObject<Image> {
+public:
+  ~Image() { cout << "Image 파괴" << endl; }
+
   void draw() {}
 };
 
