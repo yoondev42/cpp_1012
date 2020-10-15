@@ -13,6 +13,7 @@
     "mutex": "cpp",
     "vector": "cpp",
     "ostream": "cpp",
-    "chrono": "cpp"
+    "chrono": "cpp",
+    "iterator": "cpp"
   }
 }
