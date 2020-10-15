@@ -6,6 +6,9 @@ using namespace std;
 // Singleton Pattern
 //  의도: 오직 한개의 객체만 만들 수 있고, 어디에서도 동일한 방법으로 객체를 얻을 수 있게 하는 패턴
 
+// 마이어스의 싱글톤
+//  스콧 마이어스: Effective C++ 시리즈의 저자
+#if 0
 class Cursor {
   // 규칙 1. private 생성자
 private:
@@ -22,6 +25,22 @@ public:
     return instance;
   }
 };
+#endif
+
+#define MAKE_SINGLETON(classname)                       \
+private:                                                \
+  classname() {}                                        \
+  classname(const classname&) = delete;                 \
+  classname& operator=(const classname&) = delete;      \
+public:                                                 \
+  static classname& getInstance() {                     \
+    static classname instance;                          \
+    return instance;                                    \
+  }
+
+class Cursor {
+  MAKE_SINGLETON(Cursor)
+};
 
 
 // C++ 에서는 전역 객체를 사용하지 않는 것이 좋습니다.
@@ -30,7 +49,7 @@ public:
 // Cursor c;
 
 int main() {
-  Cursor& c1 = Cursor::getInstance();
+  auto& c1 = Cursor::getInstance();
   Cursor& c2 = Cursor::getInstance();
 
   printf("%p %p\n", &c1, &c2);
