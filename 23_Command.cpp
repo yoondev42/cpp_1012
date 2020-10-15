@@ -94,6 +94,7 @@ public:
 int main() {
   vector<Shape*> shapes;
   stack<ICommand*> undo_stack;
+  stack<ICommand*> redo_stack;
 
   while (1) {
     ICommand* p = nullptr;
@@ -106,22 +107,28 @@ int main() {
     else if (cmd == 2) {
       p = new AddCircleCommand(shapes);
     }
+    else if (cmd == 3) {
+      p = redo_stack.top();
+      redo_stack.pop();
+    }
     else if (cmd == 9) {
       p = new DrawCommand(shapes);
     }
     else if (cmd == 0) {
       p = undo_stack.top();
       undo_stack.pop();
+      p->Undo();
 
-      if (p->CanUndo())
-        p->Undo();
+      redo_stack.push(p); // !!!
+
       continue;
     }
 
     if (p) {
       p->Execute();
-      undo_stack.push(p);
 
+      if (p->CanUndo())
+        undo_stack.push(p);
     }
   }
 }
