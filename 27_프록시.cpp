@@ -12,7 +12,6 @@
 
 #endif
 
-
 // 27_프록시.cpp
 #include <iostream>
 #include "ioacademy.h"
