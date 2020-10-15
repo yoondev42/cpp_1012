@@ -3,6 +3,7 @@
 // Chain of Responsibility Pattern
 #include <iostream>
 #include <map>
+#include <vector>
 using namespace std;
 
 #include "ioacademy.h"
@@ -11,7 +12,22 @@ using namespace ioacademy;
 class Window {
 	int handle;
 	static std::map<int, Window*> this_map;
+
+	//--------------------
+	Window* parent;              // 부모 윈도우
+	vector<Window*> children;    // 자식 윈도우는 여러개 입니다.
 public:
+	Window() : parent(nullptr) {}
+
+	void AddChild(Window* p) {
+		p->parent = this;
+		children.push_back(p);
+
+		// C 함수를 통해 자식 윈도우를 붙인다.
+		IoAddChild(handle, p->handle);
+	}
+	//---------------------
+
 	void Create() {
 		handle = IoMakeWindow(foo);
 		this_map[handle] = this;
@@ -45,10 +61,21 @@ public:
 	}
 };
 
+class ImageView : public Window {
+public:
+	void OnLButtonDown() override {
+		cout << "ImageView LButton" << endl;
+	}
+};
+
 int main() {
 	MyWindow w;
-	w.Create();      // 이 순간 윈도우가 만들어집니다.
-					 // 왼쪽 마우스 버튼을 누르면, 출력이 되어야 합니다.
+	w.Create();      
 
+	ImageView w2;
+	w2.Create();
+
+	w.AddChild(&w2);
+					 
 	IoProcessMessage();
 }
