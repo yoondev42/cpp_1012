@@ -64,7 +64,7 @@ class AddRectCommand : public AddCommand {
 public:
   AddRectCommand(vector<Shape*>& v) : AddCommand(v) {}
 
-  // 아래 코드로 인해 부모의 Execute 는 수행되지 않습니다.
+  // 아래 코드로 인해 부모의 Execute 는 수행되지 않습니다. - final 의도
   // void Execute() override {
   // }
 
@@ -94,11 +94,30 @@ public:
   }
 };
 
+// 여러 명령을 묶는 매크로도 만들 수 있습니다.
+class MacroCommand : public ICommand {
+  vector<ICommand*> v;
+public:
+  void AddCommand(ICommand* p) { v.push_back(p); }
+
+  void Execute() override {
+    for (ICommand* p : v) {
+      p->Execute();
+    }
+  }
+};
+
 
 int main() {
   vector<Shape*> shapes;
   stack<ICommand*> undo_stack;
   stack<ICommand*> redo_stack;
+
+  MacroCommand* m = new MacroCommand;
+  m->AddCommand(new AddRectCommand(shapes));
+  m->AddCommand(new AddCircleCommand(shapes));
+  m->AddCommand(new DrawCommand(shapes));
+  m->Execute();
 
   while (1) {
     ICommand* p = nullptr;
