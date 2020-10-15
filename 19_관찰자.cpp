@@ -5,7 +5,7 @@ using namespace std;
 
 // 관찰자(Observer) 패턴: 하나의 이벤트를 등록된 객체에게 '전파'하는 패턴(브로드캐스트)
 //   : 매우 중요합니다.
-// => 비동기 이벤트의 처리
+// => 비동기 이벤트의 처리(Reactive extension - Rx)
 
 // Subject가 변경되었을 때, Graph가 반응하기 위해서의 설계 방법 2가지
 //  1. poll

@@ -14,7 +14,6 @@ void koo(int a, int b, int c, int d) { printf("koo - %d %d %d %d\n", a, b, c, d)
 
 using namespace std::placeholders;
 
-
 class Dialog {
 public:
   void f1() { cout << "f1" << endl; }

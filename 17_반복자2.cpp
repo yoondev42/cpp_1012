@@ -85,7 +85,7 @@ int main() {
   }
 }
 
-//              C++ Iterator            Java Interator
+//              C++ Iterator            Java Iterator
 //  인터페이스   암묵적(연산자 오버로딩)       명시적인 인터페이스 타입을 약속(Iterator)
 // 반복자 얻기   암묵적(begin / end)       명시적인 인터페이스 타입을 약속(Iterable)
 

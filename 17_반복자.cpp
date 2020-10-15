@@ -28,6 +28,8 @@ public:
   bool operator!=(const slist_iterator& t) { return current != t.current; }
 };
 
+// slist의 요소를 가르키기 위한 타입 - slist_iterator
+
 template <typename T>
 class slist {
   node<T>* head;
@@ -43,7 +45,7 @@ public:
   const T& front() { return head->data; }
 
   slist_iterator<T> begin() { return slist_iterator<T>(head); }
-  slist_iterator<T> end()   { return slist_iterator<T>(); }
+  slist_iterator<T> end()   { return slist_iterator<T>(nullptr); }
 };
 
 // 1. 컨테이너의 설계자는 자신의 컨테이너를 열거할 수 있는 반복자를 제공해야 합니다.
@@ -126,3 +128,19 @@ int main() {
   }
 }
 #endif
+
+
+
+
+// slist  - node<T>    
+//   다음으로 이동: current = current->next;
+// slist_iterator
+//     ++ : current = current->next;
+
+
+
+// vector - T* arr;
+//   다음으로 이동: current += 1;
+// vector_iterator
+//    ++ : current += 1;
+

@@ -152,8 +152,4 @@ int main() {
   //-----
 
   menubar->command();
-  
-
-
-
 }
