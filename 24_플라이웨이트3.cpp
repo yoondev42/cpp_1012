@@ -36,9 +36,7 @@ public:
 
 map<std::string, Image*> Image::cache;
 
-
-
-#if 0
+#if 1
 int main() {
   Image* img1 = Image::createImage("https://a.com/a.png");
   img1->draw();
@@ -71,9 +69,11 @@ private:
   Sample& operator=(const Sample&) = delete;
 };
 
+#if 0
 int main() {
   Sample s1;
   s1.foo();
 
   // Sample s2 = s1;  // !
 }
+#endif
