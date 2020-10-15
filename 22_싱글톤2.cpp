@@ -33,10 +33,11 @@ int main() {
 }
 #endif
 
+template <typename T>
 class AutoLock {
-  mutex& lock;
+  T& lock;
 public:
-  AutoLock(mutex& m) : lock(m) { lock.lock();   }
+  AutoLock(T& m) : lock(m) { lock.lock();   }
   ~AutoLock()                  { lock.unlock(); }
 };
 
@@ -60,7 +61,10 @@ public:
   //    RAII(Resource Acqusion Is Initilize) 라는 기술
   static Cursor& getInstance() {
     // sMutex.lock();
-    AutoLock al(sMutex);
+    // AutoLock<mutex> al(sMutex);
+
+    lock_guard<mutex> al(sMutex);
+
     if (sInstance == nullptr)
       sInstance = new Cursor;
     // sMutex.unlock();
