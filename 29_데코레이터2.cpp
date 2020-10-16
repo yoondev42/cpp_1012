@@ -2,7 +2,7 @@
 using namespace std;
 
 
-// 재귀적 합성을 사용하는 디자인 패턴
+// '재귀적 합성'을 사용하는 디자인 패턴
 // 1. Composite Pattern - 복합 객체의 구성
 // 2. Decorator Pattern - 런타임에 객체의 기능을 추가하는 방법
 
@@ -71,7 +71,7 @@ int main() {
 
 // Decorator 활용 - Java IO
 //   단점: 호출이 중첩된다.
-//        기능을 추가한 포장지 만큼의 콜이 추가적으로 수행되어야 한다.
+//        기능을 추가한 포장지 만큼의 호출이 추가적으로 수행되어야 한다.
 
 #if 0
 FileOutputStream fos = new FileOutputStream("a.txt");
