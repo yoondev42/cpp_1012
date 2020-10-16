@@ -2,6 +2,19 @@
 #include <iostream>
 using namespace std;
 
+
+// "공통성과 가변성의 분리"
+//  => 변하는 것과 변하지 않는 것은 분리되어야 한다.
+//  디자인 패턴
+//    1. 변하는 것(정책)을 가상함수로 분리한다.
+//         Template Method Pattern
+//         Factory Method Pattern
+
+//    2. 변하는 것(정책)을 인터페이스 기반 클래스로 분리한다.
+//         Staretegy Pattern
+//         State Pattern
+
+
 // 방법 3. 변하는 것을 인터페이스 기반 클래스로 뽑아낸다.
 //     => State Pattern
 //       : 구현하는 방법은 Starategy Pattern과 동일하다.
