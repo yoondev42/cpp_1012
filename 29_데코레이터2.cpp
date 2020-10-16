@@ -68,3 +68,18 @@ int main() {
   // Ad2 ad2(ticket);
   // ad2.print();
 }
+
+// Decorator 활용 - Java IO
+//   단점: 호출이 중첩된다.
+//        기능을 추가한 포장지 만큼의 콜이 추가적으로 수행되어야 한다.
+
+#if 0
+FileOutputStream fos = new FileOutputStream("a.txt");
+BufferedOutputStream bos = new BufferedOutputStream(fos);
+DataOutputStream dos = new DataOutputStream(bos);
+
+dos.writeUTF("hello");
+dos.writeInt(42);
+
+dos.flush();
+#endif
