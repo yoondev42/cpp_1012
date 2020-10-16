@@ -70,10 +70,15 @@ int main() {
 
   user.Do();
   user.Do();
+  int token2 = user.Save();
   printf("복원 전\n"); 
   user.Print();
   printf("복원 후\n");
   user.Load(token);
+  user.Print();
+
+  printf("복원 후2\n");
+  user.Load(token2);
   user.Print();
 }
 
