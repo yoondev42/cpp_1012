@@ -4,6 +4,26 @@
 #include <iostream>
 using namespace std;
 
+// 디자인 패턴에서 변하는 것을 '인터페이스 기반의 클래스로 만들어서 교체'하는 패턴은 3가지 입니다.
+// 1. Strategy Pattern
+//       : 알고리즘을 캡슐화해서 실행 시간에 교체 가능하게 하는 것
+//        => LineEdit - IValidator
+//           SetValidator(&v);
+
+// 2. State Pattern
+//       : 객체의 상태에 따른 동작을 정의한 클래스를 만들어서 교체하는 것
+//       => Hero   -  IState
+//          SetState(&s);
+
+// 3. Builder Pattern
+//       : 동일한 구축 공정으로 객체를 만들지만, 각 공정에 따른 표현이 달라지는 객체를 만들 때
+//       => Director - IBuilder
+//          SetBuilder(&b);
+
+// 실행시간에 교체가 필요해야 한다.
+//   => 인터페이스 기반 클래스를 통해 설계
+
+
 // 축구 게임을 만들자.
 //  - 캐릭터 커스터마이제이션
 //   : 동일한 구축 공정을 사용하지만 각 공정에 따라 표현이 달라지는 객체를 만들 때
