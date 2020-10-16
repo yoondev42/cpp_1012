@@ -36,8 +36,6 @@ class AddCommand : public ICommand {
   vector<Shape*>& shapes;
 public:
   AddCommand(vector<Shape*>& v) : shapes(v) {}
-
-
   bool CanUndo() override { return true; }
 
   void Undo() override {

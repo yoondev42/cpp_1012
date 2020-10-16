@@ -86,17 +86,19 @@ int main(int argc, char** argv) {
 
   IButton* button;
   IEdit* edit;
+  //...
   if (strcmp(argv[1], "--windows") == 0) {
     printf("Windows theme\n");
     button = new WindowsButton;
     edit = new WindowsEdit;
-    
+    //...
 
   } else if (strcmp(argv[1], "--linux") == 0) {
     printf("Linux theme\n");
 
     button = new LinuxButton;
     edit = new LinuxEdit;
+    //...
 
 
 
