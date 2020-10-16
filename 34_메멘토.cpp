@@ -6,6 +6,7 @@
 
 #include <iostream>
 #include <vector>
+#include <map>
 using namespace std;
 
 class User {
@@ -81,8 +82,6 @@ int main() {
   user.Load(token2);
   user.Print();
 }
-
-
 
 
 // 문제점
