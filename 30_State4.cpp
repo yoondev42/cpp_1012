@@ -7,13 +7,12 @@ using namespace std;
 //  => 변하는 것과 변하지 않는 것은 분리되어야 한다.
 //  디자인 패턴
 //    1. 변하는 것(정책)을 가상함수로 분리한다.
-//         Template Method Pattern
-//         Factory Method Pattern
+//         Template Method Pattern - 알고리즘의 변경
+//         Factory Method Pattern  - 객체 생성
 
 //    2. 변하는 것(정책)을 인터페이스 기반 클래스로 분리한다.
-//         Staretegy Pattern
-//         State Pattern
-
+//         Staretegy Pattern - 알고리즘의 변경
+//         State Pattern     - 상태에 따른 동작의 변경
 
 // 방법 3. 변하는 것을 인터페이스 기반 클래스로 뽑아낸다.
 //     => State Pattern
@@ -73,3 +72,7 @@ int main() {
   h.SetState(&fs);
   h.Run();
 }
+
+// 게임에서 아이템을 관리할 때,
+// 비트로 관리합니다.
+//  1bit - 1, 0
