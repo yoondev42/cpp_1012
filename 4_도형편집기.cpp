@@ -38,6 +38,8 @@ public:
   virtual void Draw() { cout << "Shape draw" << endl; }
   virtual Shape* Clone() {
     return new Shape(*this);
+    // 복사 생성자를 호출하는 코드 입니다.
+    // Shape(const Shape& s)
   }
 };
 
@@ -101,3 +103,38 @@ int main() {
     }
   }
 }
+
+// // 부모(기본) 클래스
+// class Base {
+
+// };
+
+// Base - 부모 클래스인데 순수 가상 함수를 1개 이상 가지고 있는 클래스
+//     => Abstract class
+class Base {
+  int a;
+public:
+  // 순수 가상 함수 - 구현하지 않으면 인스턴스화가 불가능
+  virtual void foo() = 0;
+
+private:
+  void goo() {}
+};
+
+// 인터페이스
+struct Base {
+  virtual void foo() = 0;
+};
+
+// 파생(서브) 클래스
+class Derived : public Base {
+public:
+  void foo() override {
+
+  }
+};
+
+
+#if 0
+
+#endif

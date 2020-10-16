@@ -44,6 +44,7 @@ public:
 
   const T& front() { return head->data; }
 
+  // 임시객체
   slist_iterator<T> begin() { return slist_iterator<T>(head); }
   slist_iterator<T> end()   { return slist_iterator<T>(nullptr); }
 };
