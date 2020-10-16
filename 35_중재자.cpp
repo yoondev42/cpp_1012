@@ -1,16 +1,17 @@
 // 중재자 패턴
 #include <vector>
+#include <string>
 #include <iostream>
 using namespace std;
-
 
 
 class CheckGroup;
 class CheckBox {
   bool state;
+  string name;
   CheckGroup* group;
 public:
-  CheckBox() : state(false) {}
+  CheckBox(const std::string& s) : state(false), name(s), group(nullptr) {}
 
   void SetGroup(CheckGroup* p) {
     group = p;
@@ -28,6 +29,7 @@ class CheckGroup {
 public:
   void AddCheckBox(CheckBox* p) {
     checkboxes.push_back(p);
+    p->SetGroup(this);
   }
 
   void OnUpdate(CheckBox* p) {
@@ -45,7 +47,8 @@ void CheckBox::SetChecked(bool b) {
   if (state) {
     group->OnUpdate(this);
   }
-  printf("%p 객체 - 상태 변경: %d\n", b);
+
+  printf("%s 객체 - 상태 변경: %d\n", name.c_str(), b);
 }
 
 
@@ -57,17 +60,21 @@ void CheckBox::SetChecked(bool b) {
 //  [ ] 빌더
 
 int main() {
-  CheckBox c1;
-  CheckBox c2;
-  CheckBox c3;
-  CheckBox c4;
+  CheckBox c1("팩토리 메소드");
+  CheckBox c2("추상 팩토리");
+  CheckBox c3("싱글톤");
+  CheckBox c4("빌더");
 
   CheckGroup group;
-  c1.SetGroup(&group);
-  c2.SetGroup(&group);
-  c3.SetGroup(&group);
-  c4.SetGroup(&group);
+  group.AddCheckBox(&c1);
+  group.AddCheckBox(&c2);
+  group.AddCheckBox(&c3);
+  group.AddCheckBox(&c4);
 
   c1.SetChecked(true);
-
+  cout << endl;
+  c2.SetChecked(true);
+  cout << endl;
+  c3.SetChecked(true);
+  cout << endl;
 }
