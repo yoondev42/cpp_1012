@@ -1,7 +1,17 @@
 
 
-// 헤더에 있는 구현을 감추고 싶을 때
+// 
 //  => pImpl Idiom(Bridge Pattern)
+//   1) 헤더에 있는 구현을 감추고 싶을 때
+//   2) C/C++ 문제점
+//     => 헤더 파일로 인한 의존성으로 인해 컴파일이 오래 걸린다.
+//     => 컴파일러 방화벽
+
+//   Exceptional C++ Series
+//      1. Exceptional C++
+//      2. More Exceptional C++
+//      3. Exceptional C++ Style
+//      "pImpl"
 
 
 #include "User.h"
