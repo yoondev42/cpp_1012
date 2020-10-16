@@ -17,6 +17,10 @@ public:
 	void write(const std::string& s) {
 		::write(sock, s.c_str(), strlen(s.c_str()));
 	}
+
+	int c_socket() {
+		return sock;
+	}
 };
 
 class ServerSocket {
@@ -46,6 +50,10 @@ public:
 		return Socket(csock);
 	}
 
+	int c_socket() {
+		return sock;
+	}
+
 	void close() {
 		::close(sock);
 	}
@@ -57,8 +65,8 @@ class TCPServer {
 public:
 	TCPServer() : sock(SOCK_STREAM) {}
 	~TCPServer() {
-		// close(sock);
-		// close(csock);
+		close(sock.c_socket());
+		close(csock.c_socket());
 	}
 
 	void start(const char* ip, int port) {
