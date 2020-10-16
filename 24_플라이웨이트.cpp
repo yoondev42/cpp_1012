@@ -1,5 +1,5 @@
 // 24_플라이웨이트.cpp
-//  Flyweight(경량) Pattern
+//  
 #include <iostream>
 #include <string>
 using namespace std;
@@ -11,7 +11,7 @@ using namespace std;
 // #include <Windows.h>    Sleep(ms)
 // #include <unistd.h>     sleep(seconds)
 
-
+// Flyweight(경량) Pattern
 // 의도: 속성이 동일한 객체가 다수 생성된다면, 하나의 객체의 '공유'해서 사용하자.
 
 class Image {

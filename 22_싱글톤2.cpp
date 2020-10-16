@@ -38,7 +38,7 @@ class AutoLock {
   T& lock;
 public:
   AutoLock(T& m) : lock(m) { lock.lock();   }
-  ~AutoLock()                  { lock.unlock(); }
+  ~AutoLock()              { lock.unlock(); }
 };
 
 
@@ -60,12 +60,11 @@ public:
   // => lock과 unlock을 직접 호출하지 않고, 생성자/소멸자를 이용해서 자동으로 처리될 수 있도록 만들어주는 것이 중요하다.
   //    RAII(Resource Acqusion Is Initilize) 라는 기술
   static Cursor& getInstance() {
-    // sMutex.lock();
     // AutoLock<mutex> al(sMutex);
     // scoped_lock<mutex> al(sMutex);
-    
     lock_guard<mutex> al(sMutex);
 
+    // sMutex.lock();
     if (sInstance == nullptr)
       sInstance = new Cursor;
     // sMutex.unlock();

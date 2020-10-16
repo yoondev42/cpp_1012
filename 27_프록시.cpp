@@ -20,9 +20,14 @@ using namespace ioacademy;
 
 #include "ICalc.h"
 
+// Remote Proxy
+//    Microsoft COM
+//      => Excel, Word 등이 제공하는 모든 기능을 클래스로 가져다가 사용할 수 있다.
+//    Android 
+//      => App에서 다양한 안드로이드가 제공하는 기능을 클래스로 가져다가 사용할 수 있다.
+
 // Calc 라는 클래스는 서비스의 개발자가 제공합니다.
 //  => '인터페이스'를 약속해야 합니다.
-
 int main() {
 	ICalc* pCalc = ICalc::CreateInstance();
 

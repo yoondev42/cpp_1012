@@ -21,6 +21,11 @@ using namespace std;
 #include "ioacademy.h"
 using namespace ioacademy;
 
+// 이벤트 처리 관련된 디자인 패턴 2가지
+// 1. Observer Pattern: 등록된 객체에게 이벤트를 전파
+// 2. Chain of Responsibility: 다음 객체에게 이벤트를 전달
+
+
 class Window {
 	int handle;
 	static std::map<int, Window*> this_map;
