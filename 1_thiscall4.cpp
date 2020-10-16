@@ -47,6 +47,8 @@ public:
 };
 
 //-----------------------
+// 1. Template Method Pattern
+// 2. Facade Pattern
 class MyThread : public Thread {
 public:
   bool threadLoop() override {

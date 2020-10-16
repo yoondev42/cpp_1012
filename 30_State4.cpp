@@ -13,6 +13,7 @@ using namespace std;
 //    2. 변하는 것(정책)을 인터페이스 기반 클래스로 분리한다.
 //         Staretegy Pattern - 알고리즘의 변경
 //         State Pattern     - 상태에 따른 동작의 변경
+//         Builder Pattern
 
 // 방법 3. 변하는 것을 인터페이스 기반 클래스로 뽑아낸다.
 //     => State Pattern
