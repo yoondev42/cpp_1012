@@ -64,17 +64,21 @@ int main() {
   CheckBox c2("추상 팩토리");
   CheckBox c3("싱글톤");
   CheckBox c4("빌더");
+  CheckBox c5("템플릿 메소드");
 
   CheckGroup group;
   group.AddCheckBox(&c1);
   group.AddCheckBox(&c2);
   group.AddCheckBox(&c3);
   group.AddCheckBox(&c4);
+  group.AddCheckBox(&c5);
 
   c1.SetChecked(true);
   cout << endl;
   c2.SetChecked(true);
   cout << endl;
   c3.SetChecked(true);
+  cout << endl;
+  c5.SetChecked(true);
   cout << endl;
 }
